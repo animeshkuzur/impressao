@@ -1,0 +1,267 @@
+html, body{
+	font-family: 'Roboto', sans-serif; 
+}
+body [class*="col-"] {
+	padding-left:0;
+	padding-right:0
+}
+body .row {
+	margin-left:0;
+	margin-right:0
+}
+/* container adjusted */
+body .container {
+	width:100%;
+	max-width:none;
+	padding:0;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 300;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.navbar {
+	z-index: 50;
+	background-color: transparent;
+	border-color: transparent;
+	-webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.navbar.scrolled {
+    background: white;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+.navbar-brand{
+	font-size: 200%;
+	cursor: pointer;
+}
+#username{
+	font-size: 170%;
+	font-weight: 300;
+}
+.page-header{
+	margin-top: 0px;
+	padding-top: 50px;
+	border: none;
+	margin-bottom: -20px;
+	background: url('../images/space-01.png') no-repeat center center;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.btn .btn-default .header-btn{
+	font-weight: 100;
+	background-color: transparent;
+	border-color: #ED1C24;
+}
+.logo{
+	margin-top: 30px;
+	width: 78%;
+	margin-bottom: 0px;
+}
+.tagline{
+	padding: 0px 20px 0px 20px; 
+	text-align: center;
+	font-size: 300%;
+	font-weight: 100;
+	margin-bottom: 20px;
+}
+.subtext{
+	margin-top: -10px;
+	font-size: 180%; 
+	font-weight: 100; 
+	padding: 0px 40px 0px 40px; 
+	text-align: center;
+}
+.upload-section{
+	margin-top: 30px;
+	width: 80%;
+	float: right;
+	padding-bottom: 20px;
+}
+.price{
+	background: #ED1C24; 
+	padding: 20px;
+}
+.divider{
+	margin:0px 0px 0px 0px;
+}
+.price-amount{
+	font-size: 600%;
+	color: white;
+	font-weight: 100;
+	text-align: center;
+	padding-top: 40px;
+}
+.rate-card .title{
+	font-size: 400%;
+	color: white;
+	font-weight: 100; 
+	text-align: center;
+	padding-bottom: 30px;
+
+}
+.rate-card {
+	padding-bottom: 30px;
+}
+.page-color{
+	color: white;
+	padding: 10px;
+	font-size: 110%;
+}
+.page-size{
+	color: white;
+	padding: 10px;
+	font-size: 110%;
+}
+.page-side{
+	color: white;
+	padding: 10px;
+	font-size: 110%;
+}
+.page-type{
+	color: white;
+	padding: 10px;
+	font-size: 110%;	
+}
+.page-type a{
+	padding: 10px;
+	text-decoration: none;
+	color: white;
+	font-size: 130%;	
+}
+.page-count{
+	color: white;
+	padding: 10px;
+	font-size: 110%;
+}
+.price-amount-subtext{
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 100;
+}
+.features{
+	margin-top: 40px;
+	margin-bottom: 40px; 
+}
+.wrapper{
+	padding: 10px 20px 10px 20px;
+}
+.feat-icon{
+	width: 50%;
+}
+.wrapper .title{
+	text-align: center;
+	font-size: 250%;
+	font-weight: 300;
+	padding-bottom: 10px;
+}
+.wrapper .desc{
+	text-align: center;
+	font-size: 150%;
+	font-weight: 300;
+	padding-bottom: 10px;
+}
+.contactus{
+	background: #ED1C24; 
+}
+.contactus .about{
+	padding: 20px 30px 50px 30px;
+}
+.contactus .about .title{
+	font-size: 40px;
+	font-weight: 300;
+	color: white; 
+}
+.contactus .about .content{
+	font-size: 20px;
+	font-weight: 300;
+	color: white; 
+}
+.contactus .about .footer{
+	color: white;
+	font-size: 130%;
+	font-weight: 300;
+	padding-top: 20px;
+}
+.contactus .contactform{
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+.contactus .contactform .title{
+	font-size: 40px;
+	font-weight: 300;
+	color: white;
+	padding: 0px 50px 10px 50px;
+}
+.contactus .contactform .form-group{
+	padding: 10px 50px 10px 50px; 
+}
+.footer{
+	color: white;
+	background: #ED1C24;
+	text-align: center;
+	font-size: 15px;
+	font-weight: 300;
+	padding-bottom: 10px;
+}
+.pgtype-title{
+	padding-top: 20px;
+	text-align: center;
+	font-size: 130%;
+}
+.pgtype-img{
+	padding: 10px;
+}
+.pgtype-desc{
+	text-align: center;
+	padding: 10px;
+	font-size: 110%;
+}
+.pgtype-footer{
+	text-align: center;
+	padding: 10px;
+	border: dashed 2px #d2d3d4;
+	border-radius: 5px;
+}
+.dropdown:hover .dropdown-menu {
+    display: block; 
+ }
+ 

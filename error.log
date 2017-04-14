@@ -1,0 +1,55 @@
+2017/04/10 12:14:06 [error] 2225#2225: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught UnexpectedValueException: The stream or file "/srv/http/impressao/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied in /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+Stack trace:
+#0 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(337): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(616): Monolog\Logger->addRecord(400, Object(UnexpectedValueException), Array)
+#3 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(UnexpectedValueException), Array)
+#4 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(113): Illuminate\Log\Writer->writeLog('error', Object(UnexpectedValueExcepti...
+PHP message: PHP Fatal error:  Uncaught UnexpectedValueException: The stream or file "/srv/http/impressao/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied in /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+Stack trace:
+#0 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(337): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(616): Monolog\Logger->addRecord(400, Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#3 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#4 /srv/http/impressao/vendor/la
+2017/04/10 12:14:13 [error] 2225#2225: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught UnexpectedValueException: The stream or file "/srv/http/impressao/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied in /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+Stack trace:
+#0 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(337): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(616): Monolog\Logger->addRecord(400, Object(UnexpectedValueException), Array)
+#3 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(UnexpectedValueException), Array)
+#4 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(113): Illuminate\Log\Writer->writeLog('error', Object(UnexpectedValueExcepti...
+PHP message: PHP Fatal error:  Uncaught UnexpectedValueException: The stream or file "/srv/http/impressao/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied in /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+Stack trace:
+#0 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(337): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(616): Monolog\Logger->addRecord(400, Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#3 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#4 /srv/http/impressao/vendor/la
+2017/04/10 12:14:16 [error] 2225#2225: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught UnexpectedValueException: The stream or file "/srv/http/impressao/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied in /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+Stack trace:
+#0 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(337): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(616): Monolog\Logger->addRecord(400, Object(UnexpectedValueException), Array)
+#3 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(UnexpectedValueException), Array)
+#4 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(113): Illuminate\Log\Writer->writeLog('error', Object(UnexpectedValueExcepti...
+PHP message: PHP Fatal error:  Uncaught UnexpectedValueException: The stream or file "/srv/http/impressao/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied in /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+Stack trace:
+#0 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(337): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /srv/http/impressao/vendor/monolog/monolog/src/Monolog/Logger.php(616): Monolog\Logger->addRecord(400, Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#3 /srv/http/impressao/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#4 /srv/http/impressao/vendor/la
+2017/04/10 21:38:07 [error] 339#339: *1 client intended to send too large body: 1964200 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/10 21:38:15 [error] 339#339: *8 client intended to send too large body: 6184429 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 04:42:24 [error] 1007#1007: *3 client intended to send too large body: 6184423 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 04:43:01 [error] 1007#1007: *4 client intended to send too large body: 6184425 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 04:43:19 [error] 1007#1007: *5 client intended to send too large body: 1964200 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 04:43:29 [error] 1007#1007: *12 client intended to send too large body: 1964202 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 05:06:33 [error] 335#335: *5 client intended to send too large body: 6184425 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 05:06:42 [error] 335#335: *6 client intended to send too large body: 1964202 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 05:08:34 [error] 335#335: *7 client intended to send too large body: 6184425 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 05:10:30 [error] 335#335: *14 client intended to send too large body: 1964200 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 05:13:16 [error] 335#335: *17 client intended to send too large body: 1595917 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 05:13:29 [error] 335#335: *18 client intended to send too large body: 6184425 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
+2017/04/11 06:18:38 [error] 335#335: *50 client intended to send too large body: 1595915 bytes, client: 127.0.0.1, server: impressao.dev, request: "POST /upload/add HTTP/1.1", host: "impressao.dev", referrer: "http://impressao.dev/print"
