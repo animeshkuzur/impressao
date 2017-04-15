@@ -1,0 +1,123 @@
+html, body{
+	font-family: 'Roboto', sans-serif; 
+    height: 100%;
+    width: 100%;
+}
+body [class*="col-"] {
+	padding-left:0;
+	padding-right:0
+}
+body .row {
+	margin-left:0;
+	margin-right:0
+}
+/* container adjusted */
+body .container {
+	width:100%;
+	max-width:none;
+	padding:0;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 300;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.navbar {
+	z-index: 50;
+	background-color: transparent;
+	border-color: transparent;
+	-webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.navbar span{
+    color: white;
+}
+.navbar.scrolled span{
+    color: #5e5e5e;
+}
+.navbar.scrolled li #username{
+	color: #5e5e5e;
+}
+.navbar.scrolled {
+    background: white;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+.navbar-brand{
+	font-size: 200%;
+  cursor: pointer;
+}
+#username{
+	color: white;
+	font-size: 170%;
+	font-weight: 300;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.header{
+	background: #ED1C24;
+	height: 25vh;
+	width: 100vw;
+	padding: 60px 55px 30px 55px;
+}
+.header .title{
+	color: white;
+	font-weight: 300;
+	font-size: 55px;
+}
+.orders{
+	height: 100vh;
+	width: 100vw;
+}
+.order-list-item{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: solid #d2d3d4 1px;
+    font-weight: 300;
+    font-size: 100%;
+    background: #f5f5f5; 
+}
+.order-list{
+    
+}
+.amt{
+    text-align: right;
+    font-weight: 300;
+    font-size: 170%;
+}

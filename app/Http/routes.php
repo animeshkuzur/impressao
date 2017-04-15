@@ -35,6 +35,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web','auth']], function(){
 	Route::get('/print',['as' => 'print', 'uses' => 'PageController@print']);
 	Route::get('/orders',['as' => 'orders', 'uses' => 'PageController@orders']);
+	Route::get('/orders/details/{id}',['as' => 'orders_details', 'uses' => 'PageController@orders_details']);
 	Route::post('/orders/add',['as' => 'add_order','uses' => 'PageController@add_order']);
 	Route::get('/settings',['as' =>'settings', 'uses' => 'PageController@settings']);
 	Route::post('/settings/password',['as' => 'password','uses' => 'PageController@password']);

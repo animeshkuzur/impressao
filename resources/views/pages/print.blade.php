@@ -9,6 +9,16 @@
 
   <meta name="_token" content="{{ csrf_token() }}"/>
 
+
+
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+  <meta http-equiv="pragma" content="no-cache" />
+
+
+
 	<!--Nav-->
 	<nav class="navbar navbar-default navbar-fixed-top">
 	  <div class="container-fluid">
@@ -22,6 +32,7 @@
 	        	<a href="{{ url('/') }}" id="username" class="dropdown-toggle" data-toggle="dropdown">Hi, {{ explode(' ',trim(\Auth::user()->name))[0] }}!</a>
 	        	  <ul class="dropdown-menu">
                 <li><a href="{{ url('/settings') }}" style="font-weight: 100;font-size: 130%">Settings</a></li>
+                <li><a href="{{ url('/print') }}" style="font-weight: 100;font-size: 130%">Print</a></li>
                 <li><a href="{{ url('/orders') }}" style="font-weight: 100;font-size: 130%">Orders</a></li>
                 <li><a href="{{ url('/logout') }}" style="font-weight: 100;font-size: 130%">Logout</a></li>
               </ul>            
@@ -249,6 +260,7 @@
                 <div id="coupon-stat">
                   
                 </div>
+                <br><br>
               </div>
             </div>
           </div>
@@ -597,7 +609,8 @@ var rates = [@foreach ($rates as $rate) [{{ $rate->page_size_id }},{{$rate->page
               $("#coupon-stat").text(response.error);  
             }
             else if(response.success){
-              $("#coupon-stat").text(response.success);
+              $("#coupon-stat").text(response.rebate+"% OFF!"+response.success);
+              $(".document-tag-price").append("(-50%)")
 
             }
             else{
@@ -640,6 +653,61 @@ var rates = [@foreach ($rates as $rate) [{{ $rate->page_size_id }},{{$rate->page
             }
             $("#ul-addr").append('<li class="col-md-3"><a href="" id="add-address" data-toggle="modal" data-target="#addadd"><div class="address-content"><div class="address"><span class="glyphicon glyphicon-plus"></span><p>Add a new address</p></div></div></a></li></ul>');            
           },
+          error: function (xhr, ajaxOptions, thrownError) {
+                 console.log(xhr.status);
+                 console.log(xhr.responseText);
+                 console.log(thrownError);
+          }
+        });
+    });
+
+    $("#delivery-address input:radio").on('click',function(){
+        $(".next-btn-block").html("<a class='next-order'><img src=\"{{ URL::asset('/images/next.png') }}\" class='img-responsive' align='right'></a>");
+    });
+
+    $(".next-btn-block").on('click','a.next-order',function(){
+      var address_id = $('input[name=address]:checked').val();
+        var document_id = $('input[name=document_id]').val();
+        var pg_color = $('input[name=pgcolor]:checked').val();
+        var pg_side = $('input[name=pgside]:checked').val();
+        var pg_size = $('input[name=pgsize]:checked').val();
+        var pg_type = $('#pgtype').find(":selected").val();
+        var pg_number = $('input[name=pgnumber]').val();
+        var cp_number = $('input[name=cpnumber]').val();
+        var discount = $("#discode").val();
+        var comment = $("textarea#comment").val();
+        var paymode_id = $('input[name=paymode]:checked').val();
+
+        var request = {'address_id':address_id,'document_id':document_id,'pg_color':pg_color,'pg_side':pg_side,'pg_size':pg_size,'pg_type':pg_type,'pg_number':pg_number,'cp_number':cp_number,'discount':discount,'comment':comment,'paymode_id':paymode_id}
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+          }
+        });
+        $.ajax({
+          url: "{{ url('/orders/add')}}",
+          method: 'POST',
+          data: request,
+          dataType: 'json',
+          success: function(response) {
+            if(response.success){
+              done_url = "{{ URL::asset('/images/tick-box.png') }}";
+              url = "{{ url('/orders') }}";
+              $('body').children().fadeOut('slow');
+              $('body').html('<div class="container"><div class="row"><div class="col-md-12"><div  class="pg-img" align="center" style="text-align: center;margin-top: 25vh;font-size: 200%;font-weight: 100;"><img src="'+done_url+'" class="img-responsive" style="margin:0 auto;width:200px;"><br><br>Done <p><a href="'+url+'">(Click anywhere to continue)</a></p></div></div></div></div>');
+            }
+            if(response.error){
+              done_url = "{{ URL::asset('/images/round-delete-button.png') }}";
+              url = "{{ url('/print') }}";
+              $('body').children().fadeOut('slow');
+              $('body').html('<div class="container"><div class="row"><div class="col-md-12"><div  class="pg-img" align="center" style="text-align: center;margin-top: 25vh;font-size: 200%;font-weight: 100;"><img src="'+done_url+'" class="img-responsive" style="margin:0 auto;width:200px;"><br><br>ERROR!! <p><a href="'+url+'">(Click anywhere to continue)</a></p></div></div></div></div>');
+            }
+          },
+          beforeSend: function() {
+              gif_url = "{{ URL::asset('/images/91.gif') }}";
+              $('body').children().fadeOut('slow');
+              $('body').html('<div class="container container-table"><div class="row vertical-center-row"><div class="text-center col-md-4 col-md-offset-4"><img src="'+gif_url+'" class="img-responsive"></div></div></div>');
+           },
           error: function (xhr, ajaxOptions, thrownError) {
                  console.log(xhr.status);
                  console.log(xhr.responseText);

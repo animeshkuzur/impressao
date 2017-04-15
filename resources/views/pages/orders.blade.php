@@ -2,7 +2,7 @@
 
 @section('style')
 	<!--Custom Styles-->
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('styles/print.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('styles/order.css') }}">
 @endsection
 
 @section('content')
@@ -21,6 +21,7 @@
 	        	<a href="{{ url('/') }}" id="username" class="dropdown-toggle" data-toggle="dropdown">Hi, {{ explode(' ',trim(\Auth::user()->name))[0] }}!</a>
 	        	<ul class="dropdown-menu">
                     <li><a href="{{ url('/settings') }}" style="font-weight: 100;font-size: 130%">Settings</a></li>
+                    <li><a href="{{ url('/print') }}" style="font-weight: 100;font-size: 130%">Print</a></li>
                     <li><a href="{{ url('/orders') }}" style="font-weight: 100;font-size: 130%">Orders</a></li>
                     <li><a href="{{ url('/logout') }}" style="font-weight: 100;font-size: 130%">Logout</a></li>
                 </ul>            
@@ -31,24 +32,68 @@
 	        </li>
 	       	@endif
 	      </ul>
-    </div>
+    	</div>
 	  </div>
 	</nav>
 
-	<div class="print">
+	<div class="orders">
 		<div class="header">
 			<div class="title">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-						Orders
+							Orders
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="upload">
-				
+		<div class="order-list">
+			<div class="container">
+			@if($orders)
+				@foreach($orders as $order)					
+					<a href="{{ url('/orders/details/'.$order->id) }}" style="text-decoration: none;">
+					<div class="row">
+						<div class="col-md-12">
+						<div class="container">
+							<div class="order-list-item">
+								
+								<div class="row">
+									<div class="col-sm-4">
+										Date : {{$order->date_time}}<br>
+										Order No: {{$order->id}}
+									</div>
+									<div class="col-sm-4">
+										{{$order->original_docname}}
+									</div>
+									<div class="col-sm-4">
+										<div class="amt">Rs. {{$order->amount}}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					</a>
+				@endforeach
+			@else
+				<div class="row">
+						<div class="col-md-12">
+						<div class="container">
+							<div class="order-list-item">
+								
+								<div class="row">
+									<div class="col-sm-12">
+										NO ORDERS YET
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+
+			@endif
+			</div>	
 		</div>
 	</div>
 @endsection

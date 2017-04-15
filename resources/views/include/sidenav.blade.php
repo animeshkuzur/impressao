@@ -6,6 +6,7 @@
 	  <a href="{{ url('/#service') }}">Services</a>
 	  <a href="{{ url('/#contact') }}">Contact</a>
 	  @if(\Auth::check())
+	  	<a href="{{ url('/print') }}">Print</a>
 	  	<a href="{{ url('/orders') }}">Orders</a>
 	  	<a href="{{ url('/settings') }}">Settings</a>
 	  	<a href="{{ url('/logout') }}">Logout</a>	

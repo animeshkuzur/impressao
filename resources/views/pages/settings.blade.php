@@ -21,6 +21,7 @@
 	        	<a href="{{ url('/') }}" id="username" class="dropdown-toggle" data-toggle="dropdown">Hi, {{ explode(' ',trim(\Auth::user()->name))[0] }}!</a>
 	        	<ul class="dropdown-menu">
                     <li><a href="{{ url('/settings') }}" style="font-weight: 100;font-size: 130%">Settings</a></li>
+                    <li><a href="{{ url('/print') }}" style="font-weight: 100;font-size: 130%">Print</a></li>
                     <li><a href="{{ url('/orders') }}" style="font-weight: 100;font-size: 130%">Orders</a></li>
                     <li><a href="{{ url('/logout') }}" style="font-weight: 100;font-size: 130%">Logout</a></li>
                 </ul>            
