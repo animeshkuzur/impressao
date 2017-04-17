@@ -22,18 +22,29 @@ class PageController extends Controller
     }
 
     public function orders(){
-        $orders = Order::where('user_id',Auth::user()->id)->join('order_details','order_details.id','=','orders.order_detail_id')->join('documents','documents.id','=','order_details.document_id')->get();
+        $orders = Order::where('user_id',Auth::user()->id)->join('order_details','order_details.id','=','orders.order_detail_id')->join('documents','documents.id','=','order_details.document_id')->orderBy('date_time', 'desc')->get(['orders.id','documents.original_docname','orders.amount','orders.date_time']);
 
         return view('pages.orders',['orders'=>$orders]);
     }
 
     public function settings(){
-        return view('pages.settings');
+        $user_address = UserAddress::where('user_id',Auth::user()->id)->get();
+        return view('pages.settings',['user_address'=>$user_address]);
     }
 
     public function dashboard(){
-        $orders = Order::where('completed',false)->get();
+
+        $orders = Order::where('user_id',Auth::user()->id)->where('completed',false)->join('order_details','order_details.id','=','orders.order_detail_id')->join('documents','documents.id','=','order_details.document_id')->orderBy('date_time', 'desc')->get(['orders.id','documents.original_docname','orders.amount','orders.date_time']);
+
     	return view('pages.dashboard',['orders'=>$orders]);
+    }
+
+    public function dashboard_details($id){
+        $orders = Order::where('orders.user_id',Auth::user()->id)->where('orders.id',$id)->join('order_details','order_details.id','=','orders.order_detail_id')->join('documents','documents.id','=','order_details.document_id')->join('user_addresses','user_addresses.id','=','orders.address_id')->leftJoin('discounts','discounts.id','=','order_details.discount_id')->join('page_sizes','page_sizes.id','=','order_details.page_size_id')->join('page_types','page_types.id','=','order_details.page_type_id')->join('print_sides','print_sides.id','=','order_details.print_side_id')->join('print_types','print_types.id','=','order_details.print_type_id')->orderBy('date_time', 'desc')->get(['orders.id','documents.original_docname','orders.amount','orders.date_time','orders.payment_mode_id','discounts.coupon','order_details.comments','page_sizes.size','page_types.type','print_types.color','print_sides.side','order_details.pages','order_details.copies','user_addresses.name','user_addresses.add1','user_addresses.add2','user_addresses.city','user_addresses.pincode','user_addresses.phone','documents.id as docid'])->first();
+
+
+
+        return view('pages.dashboard_detail',['orders'=>$orders]);
     }
 
     public function add_address(Request $request){
@@ -217,7 +228,24 @@ class PageController extends Controller
     }
 
     public function orders_details($id){
-        
-        return 0;
+
+        $orders = Order::where('orders.user_id',Auth::user()->id)->where('orders.id',$id)->join('order_details','order_details.id','=','orders.order_detail_id')->join('documents','documents.id','=','order_details.document_id')->join('user_addresses','user_addresses.id','=','orders.address_id')->leftJoin('discounts','discounts.id','=','order_details.discount_id')->join('page_sizes','page_sizes.id','=','order_details.page_size_id')->join('page_types','page_types.id','=','order_details.page_type_id')->join('print_sides','print_sides.id','=','order_details.print_side_id')->join('print_types','print_types.id','=','order_details.print_type_id')->orderBy('date_time', 'desc')->get(['orders.id','documents.original_docname','orders.amount','orders.date_time','orders.payment_mode_id','discounts.coupon','order_details.comments','page_sizes.size','page_types.type','print_types.color','print_sides.side','order_details.pages','order_details.copies','user_addresses.name','user_addresses.add1','user_addresses.add2','user_addresses.city','user_addresses.pincode','user_addresses.phone'])->first();
+
+        return view('pages.order_detail',['orders' => $orders]);
+    }
+
+    public function print_orders($id){
+
+        return redirect('/dashboard');
+    }
+
+    public function delete_orders($id){
+        $order = Order::where('id',$id)->get()->first();
+        $order_detail = OrderDetail::where('id',$order->order_detail_id)->get()->first();
+
+        $del_order_detail = OrderDetail::where('id',$order->order_detail_id)->delete();
+        $del_order = Order::where('id',$id)->delete();
+        $del_doc = Document::where('id',$order_detail->document_id)->delete();
+        return redirect('/dashboard');
     }
 }

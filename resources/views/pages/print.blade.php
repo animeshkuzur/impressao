@@ -529,7 +529,7 @@ var rates = [@foreach ($rates as $rate) [{{ $rate->page_size_id }},{{$rate->page
             $("div.price-amount").text("Rs. "+cost.toFixed(2));
             if(cost>0){
               $(".next-btn-block").html("<a class='next-checkout'><img src=\"{{ URL::asset('/images/next.png') }}\" class='img-responsive' align='right'></a>");
-              $(".document-tag-price").html("Rs. <b>"+(cost+10).toFixed(2)+"</b>");
+              $(".document-tag-price").html("Rs. <b>"+(cost+10).toFixed(2)+"</b> (Cost + Delivery)");
               $("#paytm-amt").text("Paytm Rs. "+(cost+10).toFixed(2)+" to 7064267360");
             }
             else{
@@ -706,7 +706,7 @@ var rates = [@foreach ($rates as $rate) [{{ $rate->page_size_id }},{{$rate->page
           beforeSend: function() {
               gif_url = "{{ URL::asset('/images/91.gif') }}";
               $('body').children().fadeOut('slow');
-              $('body').html('<div class="container container-table"><div class="row vertical-center-row"><div class="text-center col-md-4 col-md-offset-4"><img src="'+gif_url+'" class="img-responsive"></div></div></div>');
+              $('body').html('<div class="container"><div class="row"><div class="col-md-12"><div  class="pg-img" align="center" style="text-align: center;margin-top: 25vh;font-size: 200%;font-weight: 100;"><img src="'+gif_url+'" class="img-responsive" style="margin:0 auto;width:200px;"><br><br>Saving...</div></div></div></div>');
            },
           error: function (xhr, ajaxOptions, thrownError) {
                  console.log(xhr.status);

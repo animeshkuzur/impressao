@@ -36,12 +36,10 @@ class UploadController extends Controller
 		
 	}
 
-	public function get($filename){
-	
-		$entry = Document::where('docname', '=', $filename)->firstOrFail();
-		$file = Storage::disk('local')->get($entry->docname);
- 
-		return (new Response($file, 200))
-              ->header('Content-Type', $entry->mime);
+	public function get($id){
+		
+		$entry = Document::where('id', '=', $id)->firstOrFail();
+		$file =  Storage::disk('local')->getDriver()->getAdapter()->applyPathPrefix($entry->docname);
+        return \Response::download($file);
 	}
 }

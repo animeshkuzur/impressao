@@ -52,7 +52,7 @@
 			<div class="container">
 			@if($orders)
 				@foreach($orders as $order)					
-					<a href="{{ url('/orders/details/'.$order->id) }}" style="text-decoration: none;">
+					<a href="{{ url('/orders/details/'.$order->id) }}" target="_blank" style="text-decoration: none;">
 					<div class="row">
 						<div class="col-md-12">
 						<div class="container">
@@ -60,20 +60,31 @@
 								
 								<div class="row">
 									<div class="col-sm-4">
-										Date : {{$order->date_time}}<br>
-										Order No: {{$order->id}}
+										Date : <b>{{$order->date_time}}</b><br>
+										Order No: <b>{{$order->id}}</b>
 									</div>
 									<div class="col-sm-4">
-										{{$order->original_docname}}
+										Document : {{$order->original_docname}}<br>
+										@if($order->completed)
+											Status : <b>Approved</b>
+										@else
+											Status : <b>Processing</b>
+										@endif
 									</div>
 									<div class="col-sm-4">
 										<div class="amt">Rs. {{$order->amount}}</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12" style="text-align: center;">
+										Click to view details
 									</div>
 								</div>
 							</div>
 						</div>
 						</div>
 					</div>
+					
 					</a>
 				@endforeach
 			@else

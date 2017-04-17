@@ -61,7 +61,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						Document Uploaded : {{$orders->original_docname}}
+						Document Uploaded : <a href="{{ url('upload/get') }}/{{ $orders->docid }}">{{$orders->original_docname}}</a>
 						<br>
 						@if($orders->completed)
 											Status : <b>Approved</b>
@@ -118,12 +118,14 @@
 						</div>
 					</div>
 				</div>
+				<br>
 				<div class="row">
 					<div class="col-md-6">
-						
+						<a href="{{ url('/orders/print') }}/{{ $orders->id }}" class="btn btn-primary">Finished</a>
+
 					</div>
-					<div class="col-md-6" style="text-align:right;">
-						
+					<div class="col-md-6" align="right">
+						<a href="{{ url('/orders/delete') }}/{{ $orders->id }}" class="btn btn-danger">Delete</a>
 					</div>
 				</div>
 			</div>

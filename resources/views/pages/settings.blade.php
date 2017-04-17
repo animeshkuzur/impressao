@@ -48,9 +48,46 @@
 				</div>
 			</div>
 		</div>
-		<div class="upload">
-				
+		<div class="setting-content">
+			Name : {{ \Auth::user()->name }}
+			<BR><br>
+			Email : {{ \Auth::user()->email }}
+
 		</div>
+		<hr>
+		<div id="delivery-address">
+		<div style="font-weight: 300;font-size:150%;padding: 0px 40px;">Address :</div>
+        <ul class="row" style="list-style: none;" id="ul-addr">
+          @if($user_address)
+          @foreach($user_address as $adds)
+          <li class="col-md-3">
+            <div class="address-content">
+              <div class="address">
+                <div class="radio">
+                  <label><input type="radio" name="address" value="{{ $adds->id }}">&nbsp;&nbsp;<b>{{ $adds->name }}</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="delete_addr" style="color:red;cursor:pointer;" at="{{ $adds->id }}"><span class="glyphicon glyphicon-trash"></span></a>
+                </div>
+                <p>{{ $adds->add1 }}</p>
+                <p>{{ $adds->add2 }}</p>
+                <p>{{ $adds->city." - ".$adds->pincode }}</p>
+                <p>Mobile : {{ $adds->phone }}</p>
+              </div>
+            </div>
+          </li>
+          @endforeach
+          @endif
+          
+          <li class="col-md-3">
+            <a href="" id="add-address" data-toggle="modal" data-target="#addadd">
+            <div class="address-content">
+              <div class="address">
+                <span class="glyphicon glyphicon-plus"></span>
+                <p>Add a new address</p>
+              </div>
+            </div>
+            </a>
+          </li>
+        </ul>
+        </div>
 	</div>
 @endsection
 

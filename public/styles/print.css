@@ -304,3 +304,8 @@ body .container {
   color: red;
   font-weight: 300; 
 }
+.setting-content{
+  padding: 20px 40px;
+  font-size: 150%;
+  font-weight: 300;
+}

@@ -2,7 +2,7 @@
 
 @section('style')
 	<!--Custom Styles-->
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('styles/print.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('styles/order.css') }}">
 @endsection
 
 @section('content')
@@ -34,20 +34,75 @@
 	  </div>
 	</nav>
 
-	<div class="print">
+	<div class="orders">
 		<div class="header">
 			<div class="title">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-						Dashboard
+							Orders
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="upload">
-				
+		<div class="order-list">
+			<div class="container">
+			@if($orders)
+				@foreach($orders as $order)					
+					<a href="{{ url('/dashboard/details/'.$order->id) }}" style="text-decoration: none;">
+					<div class="row">
+						<div class="col-md-12">
+						<div class="container">
+							<div class="order-list-item">
+								
+								<div class="row">
+									<div class="col-sm-4">
+										Date : <b>{{$order->date_time}}</b><br>
+										Order No: <b>{{$order->id}}</b>
+									</div>
+									<div class="col-sm-4">
+										Document : {{$order->original_docname}}<br>
+										@if($order->completed)
+											Status : <b>Approved</b>
+										@else
+											Status : <b>Processing</b>
+										@endif
+									</div>
+									<div class="col-sm-4">
+										<div class="amt">Rs. {{$order->amount}}</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12" style="text-align: center;">
+										Click to view details
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					
+					</a>
+				@endforeach
+			@else
+				<div class="row">
+						<div class="col-md-12">
+						<div class="container">
+							<div class="order-list-item">
+								
+								<div class="row">
+									<div class="col-sm-12">
+										NO ORDERS YET
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+
+			@endif
+			</div>	
 		</div>
 	</div>
 @endsection

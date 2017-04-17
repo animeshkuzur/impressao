@@ -35,6 +35,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web','auth']], function(){
 	Route::get('/print',['as' => 'print', 'uses' => 'PageController@print']);
 	Route::get('/orders',['as' => 'orders', 'uses' => 'PageController@orders']);
+	Route::get('/orders/print/{id}',['as' => 'print_orders','uses' => 'PageController@print_orders']);
+	Route::get('/orders/delete/{id}',['as' => 'delete_orders','uses' => 'PageController@delete_orders']);
 	Route::get('/orders/details/{id}',['as' => 'orders_details', 'uses' => 'PageController@orders_details']);
 	Route::post('/orders/add',['as' => 'add_order','uses' => 'PageController@add_order']);
 	Route::get('/settings',['as' =>'settings', 'uses' => 'PageController@settings']);
@@ -47,5 +49,25 @@ Route::group(['middleware' => ['web','auth']], function(){
 
 Route::group(['middleware' => ['web','admin']], function(){
 	Route::get('/dashboard',['as' => 'dashboard', 'uses' => 'PageController@dashboard']);
+	Route::get('/dashboard/details/{id}',['as' => 'dashboard_details','uses' => 'PageController@dashboard_details']);
 	Route::get('upload/get/{filename}', ['as' => 'getdocs', 'uses' => 'UploadController@get']);
 });
+
+Route::get('download/{filename}', function($filename)
+{
+    // Check if file exists in app/storage/file folder
+    $file_path = storage_path() .'/app/'. $filename;
+    if (file_exists($file_path))
+    {
+        // Send Download
+        return Response::download($file_path, $filename, [
+            'Content-Length: '. filesize($file_path)
+        ]);
+    }
+    else
+    {
+        // Error
+        exit('Requested file does not exist on our server!');
+    }
+})
+->where('filename', '[A-Za-z0-9\-\_\.]+');
